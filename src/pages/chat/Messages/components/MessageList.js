@@ -7,7 +7,7 @@ class MessageList extends React.Component {
   state = { messages: this.props.messages ? this.props.messages : [] }
 
   componentDidMount() {
-    this.socket = io("http://localhost:8000")
+    this.socket = io("https://trext-prod.appspot.com")
     this.socket.on("NEW_MESSAGE", message => {
       this.setState(prevState => ({
         messages: [...this.state.messages, message],
