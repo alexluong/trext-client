@@ -12,7 +12,7 @@ class ConversationsPage extends React.Component {
     if (!this.props.user) this.props.history.push("/sign-in")
     else if (!this.props.user.twilioNumber) this.props.history.push("/set-up")
 
-    this.socket = io("http://trext-prod.appspot.com")
+    this.socket = io("https://trext-prod.appspot.com")
     this.socket.on("stuff", function(data) {
       console.log("update conversations list")
     })
