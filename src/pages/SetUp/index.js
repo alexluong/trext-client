@@ -3,6 +3,7 @@ import { Button, SelectField, TextField, List, ListItem } from "react-md"
 import { Grid, Cell } from "react-md"
 import { getPhoneNumbers, createUserTwilio } from "actions/twilio"
 import { withUser } from "contexts/User"
+import languages from "../chat/New/languages.json"
 
 class SetUp extends Component {
   state = {
@@ -60,7 +61,7 @@ class SetUp extends Component {
             Select your Language
           </Cell>
           <Cell size={6} tabletSize={4} phoneSize={2}>
-            <SelectField id="setup-__country_name" menuItems={COUNTRIES} />
+            <SelectField id="setup-__country_name" menuItems={LANGUAGES} />
           </Cell>
         </Grid>
         <Grid>
@@ -104,23 +105,22 @@ class SetUp extends Component {
 
 export default withUser(SetUp)
 
-const COUNTRIES = [
-  {
-    value: "en",
-  },
-  {
-    value: "ko",
-  },
-  {
-    value: "es",
-  },
-  {
-    value: "vi",
-  },
-]
+const LANGUAGES = Object.keys(languages).reduce((a, v) => {
+  a.push({ label: v, value: languages[v] })
+  return a
+}, [])
 
-// <SelectField
-//             id="1"
-//             menuItems={nums}
-//             onChange={number => this.onNumberListClick(number)}
-//           />
+// const COUNTRIES = [
+//   {
+//     value: "en",
+//   },
+//   {
+//     value: "ko",
+//   },
+//   {
+//     value: "es",
+//   },
+//   {
+//     value: "vi",
+//   },
+// ]
