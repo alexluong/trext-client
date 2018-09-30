@@ -26,7 +26,7 @@ class SignInPage extends React.Component {
   render() {
     return (
       <AuthLayout>
-        <h1>App</h1>
+        <h1>Trext</h1>
 
         <form className="auth-layout__form" onSubmit={this.signIn}>
           <TextField id="sign-in__email" label="Email" type="email" fullWidth />

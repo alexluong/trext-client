@@ -27,7 +27,8 @@ const Routes = () => (
       <Route path="/chat" component={ConversationsPage} />
       <Route path="/settings" component={SettingsPage} />
       <Route path="/verify/:id" component={VerifyPage} />
-      <Route component={NotFoundPage} />
+      {/* <Route component={NotFoundPage} /> */}
+      <Redirect to="/chat" />
     </Switch>
   </BrowserRouter>
 )
